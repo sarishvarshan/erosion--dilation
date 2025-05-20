@@ -1,79 +1,56 @@
-# Implementation-of-Erosion-and-Dilation
-## Aim
+Implementation-of-Erosion-and-Dilation
+Aim
 To implement Erosion and Dilation using Python and OpenCV.
-## Software Required
-1. Anaconda - Python 3.7
-2. OpenCV
-## Algorithm:
-### Step1:
-<br>
 
+Software Required
+Anaconda - Python 3.7
+OpenCV
+Algorithm:
+Step1: Import the neccesary packages
+Step2: Creat the text using cv2.put Text
+Step3: Create the structuting element
+Step4: Erodde the image
+Step5: Dilate the image
+Program:
+Name: SARISH VARSHAN V
+Register Number: 212223230196
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
 
-### Step2:
-<br>
+def load_img():
+    blank_img = np.zeros((300,700), dtype=np.uint8)
+    front = cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(blank_img, text='FRANK', org=(50,200), fontFace=front, 
+                fontScale=5, color=(255, 255, 255), thickness=25, lineType=cv2.LINE_AA)
+    return blank_img
 
-### Step3:
-<br>
+def display_img(img,title="Original Image"):
+    fig=plt.figure(figsize=(10,8))
+    ax=fig.add_subplot(111)
+    ax.imshow(img,cmap='gray')
+    ax.set_title(title, fontsize=16)
+    plt.show()
 
-### Step4:
-<br>
+img = load_img()
+display_img(img)
 
-### Step5:
-<br>
+kernal = np.ones((5,5),dtype=np.uint8)
 
- 
-## Program:
+img1 = cv2.erode(img,kernal,iterations = 2)
+display_img(img1,"Eroded Image")
 
-``` Python
-# Import the necessary packages
+dilate = cv2.dilate(img,kernal,iterations = 3)
+display_img(dilate,"Dilated Image")
+Output:
+Display the input Image
+Screenshot 2025-05-20 210017
 
+Display the Eroded Image
+Screenshot 2025-05-20 210025
 
+Display the Dilated Image
+Screenshot 2025-05-20 210035
 
-# Create the Text using cv2.putText
-
-
-
-# Create the structuring element
-
-
-
-# Erode the image
-
-
-
-
-# Dilate the image
-
-
-
-
-
-```
-## Output:
-
-### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-### Display the Eroded Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-### Display the Dilated Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Result
+Result
 Thus the generated text image is eroded and dilated using python and OpenCV.
